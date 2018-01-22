@@ -1,0 +1,421 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CLI Usage Guide &mdash; velocyto 0.13.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="velocyto 0.13.1 documentation" href="../index.html"/>
+        <link rel="up" title="Tutorial" href="index.html"/>
+        <link rel="next" title="Analysis Pipeline" href="analysis.html"/>
+        <link rel="prev" title="Tutorial" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> velocyto
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.13
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to velocyto.py!</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">Installation Guide</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#running-the-cli">Running the CLI</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">CLI Usage Guide</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#preparation">Preparation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-velocyto">Running <code class="docutils literal notranslate"><span class="pre">velocyto</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-on-a-single-or-multiple-10x-chromium-samples">Run on a single or multiple 10X Chromium samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#about-the-output-loom-file">About the output .loom file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-started-with-the-analysis">Get started with the analysis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#estimating-rna-velocity">Estimating RNA velocity</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../fullapi/index.html">API</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/index.html">Notebooks</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../license/index.html">License</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../citing/index.html">Authors and citations</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">velocyto</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Tutorial</a> &raquo;</li>
+        
+      <li>CLI Usage Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/velocyto-team/velocyto.py/blob/master/doc/tutorial/cli.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cli-usage-guide">
+<span id="cli"></span><h1>CLI Usage Guide<a class="headerlink" href="#cli-usage-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>After you have velocyto correctly installed on your machine (see <a class="reference internal" href="../install/index.html#install"><span class="std std-ref">installation tutorial</span></a>) the <code class="docutils literal notranslate"><span class="pre">velocyto</span></code> command will become available in the terminal.
+<code class="docutils literal notranslate"><span class="pre">velocyto</span></code> is a command line tool with subcomands. You can get info on all the available commands typing <code class="docutils literal notranslate"><span class="pre">velocyto</span> <span class="pre">--help</span></code>. You will get the following output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span> <span class="n">velocyto</span> <span class="p">[</span><span class="n">OPTIONS</span><span class="p">]</span> <span class="n">COMMAND</span> <span class="p">[</span><span class="n">ARGS</span><span class="p">]</span><span class="o">...</span>
+
+        <span class="n">Options</span><span class="p">:</span>
+          <span class="o">--</span><span class="n">help</span>  <span class="n">Show</span> <span class="n">this</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span><span class="o">.</span>
+
+        <span class="n">Commands</span><span class="p">:</span>
+          <span class="n">run</span>     <span class="n">Runs</span> <span class="n">the</span> <span class="n">velocity</span> <span class="n">analysis</span> <span class="n">outputing</span> <span class="n">a</span> <span class="n">loom</span> <span class="n">file</span>
+          <span class="n">run10x</span>  <span class="n">Runs</span> <span class="n">the</span> <span class="n">velocity</span> <span class="n">analysis</span> <span class="k">for</span> <span class="n">a</span> <span class="n">Chromium</span> <span class="n">Sample</span>
+</pre></div>
+</div>
+<p>You can further query for information on each subcommand by typing <code class="docutils literal notranslate"><span class="pre">velocyto</span> <span class="pre">COMMANDNAME</span> <span class="pre">--help</span></code>.</p>
+<p>Alternatively you can visit the online <a class="reference internal" href="../fullapi/cliapi.html#cliapi"><span class="std std-ref">api description page</span></a> that includes usage information for all the subcommands.</p>
+</div>
+<div class="section" id="preparation">
+<h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="download-genome-annotation-file">
+<h3>Download genome annotation file<a class="headerlink" href="#download-genome-annotation-file" title="Permalink to this headline">¶</a></h3>
+<p>Download a genome annotation (.gtf file) for example from <a class="reference external" href="http://www.gencodegenes.org/">GENCODE</a> or <a class="reference external" href="http://www.ensembl.org/info/data/ftp/index.html">Ensembl</a>. If you use the  <code class="docutils literal notranslate"><span class="pre">cellranger</span></code> pipeline, you should download the gtf that comes prepackaged with it <a class="reference external" href="https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/advanced/references">here</a>.</p>
+</div>
+<div class="section" id="download-expressed-repeats-annotation">
+<h3>Download expressed repeats annotation<a class="headerlink" href="#download-expressed-repeats-annotation" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This step is optional.</p>
+</div>
+<p>You might want to mask expressed repetitive elements, since those count could constitute a confounding factor in the downstream analysis.
+To do so you would need to download an appropriate expressed repeat annotation (for example <a class="reference external" href="https://genome.ucsc.edu/cgi-bin/hgTables?hgsid=611454127_NtvlaW6xBSIRYJEBI0iRDEWisITa&amp;clade=mammal&amp;org=Mouse&amp;db=mm10&amp;hgta_group=allTracks&amp;hgta_track=rmsk&amp;hgta_table=0&amp;hgta_regionType=genome&amp;position=chr12%3A56694976-56714605&amp;hgta_outputType=primaryTable&amp;hgta_outputType=gff&amp;hgta_outFileName=mm10_rmsk.gtf">from UCSC genome browser</a> and <strong>make sure to select GTF</strong>  as output format).</p>
+</div>
+</div>
+<div class="section" id="running-velocyto">
+<h2>Running <code class="docutils literal notranslate"><span class="pre">velocyto</span></code><a class="headerlink" href="#running-velocyto" title="Permalink to this headline">¶</a></h2>
+<p>The general purpose command to start the pipeline for read counting is <code class="docutils literal notranslate"><span class="pre">velocyto</span> <span class="pre">run</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">run</span></code> defaults are appropriate for the analysis of both 10X Genomics v1/v2 and InDrops 3’ chemistry.</p>
+<p>A typical use of <code class="docutils literal notranslate"><span class="pre">run</span></code> is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">velocyto</span> <span class="n">run</span> <span class="o">-</span><span class="n">b</span> <span class="n">filtered_barcodes</span><span class="o">.</span><span class="n">tsv</span> <span class="o">-</span><span class="n">o</span> <span class="n">output_path</span> <span class="o">-</span><span class="n">m</span> <span class="n">repeat_msk_srt</span><span class="o">.</span><span class="n">gtf</span> <span class="n">possorted_genome_bam</span><span class="o">.</span><span class="n">bam</span> <span class="n">mm10_annotation</span><span class="o">.</span><span class="n">gtf</span>
+</pre></div>
+</div>
+<p>The general signature for the <code class="docutils literal notranslate"><span class="pre">run</span></code> subcommand is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Usage: velocyto run [OPTIONS] BAMFILE GTFFILE
+
+          Runs the velocity analysis outputing a loom file
+
+          BAMFILE bam file with sorted reads
+
+          GTFFILE genome annotation file
+
+        Options:
+          -b, --bcfile PATH               Valid barcodes file, to filter the bam. If --bcfile is not specified all the cell barcodes will be incuded.
+                                          Cell barcodes should be specified in the bcfile as the `CB` tag for each read
+          -o, --outputfolder PATH         Output folder, if it does not exist it will be created.
+          -e, --sampleid PATH             The sample name that will be used to retrieve informations from metadatatable
+          -s, --metadatatable PATH        Table containing metadata of the various samples (csv formatted, rows are samples and cols are entries)
+          -m, --repmask PATH              .gtf file containing intervals to mask
+          -l, --logic TEXT                The logic to use for the filtering (default: Default)
+          -M, --multimap                  Use reads that did not map uniquely (default: False)
+          -x, --molrep                    Outputs pickle files with containing a sample of the read mappings supporting molecule counting. (Useful for development or debugging only)
+          -@, --samtools-threads INTEGER  The number of threads to use to sort the bam by cellID file using samtools
+          --samtools-memory INTEGER       The number of MB used for every thread by samtools to sort the bam file
+          --help                          Show this message and exit.
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Execution time is ~3h for a typical sample but might vary significantly by sequencing depth and cpu power.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Running velocyto without specifying a filtered barcode set (<code class="code docutils literal notranslate"><span class="pre">-b/--bcfile</span></code> option) is not recommended, do it at your own risk. In thsi way, the counter will use all the cell barcodes it encounters. It might result in long runtimes, large memory alloactions and big output matrix.</p>
+</div>
+<div class="section" id="notes-on-velocyto-run">
+<h3>Notes on <code class="docutils literal notranslate"><span class="pre">velocyto</span> <span class="pre">run</span></code><a class="headerlink" href="#notes-on-velocyto-run" title="Permalink to this headline">¶</a></h3>
+<p>As one of its first steps <code class="docutils literal notranslate"><span class="pre">velocyto</span> <span class="pre">run</span></code> will try to create a copy of the input .bam files sorted by cell-barcode. The sorted .bam file will be placed in the same directory as the original file and it will be named <code class="docutils literal notranslate"><span class="pre">cellsorted_[ORIGINALBAMNAME]</span></code>.
+The sorting procedure uses <code class="docutils literal notranslate"><span class="pre">samtools</span> <span class="pre">sort</span></code> and it is expected to be time consumning, because of this, the procedurre is perfomed in parellel by default. It is possible to control this parallelization using the parameters <code class="docutils literal notranslate"><span class="pre">--samtools-threads</span></code> and  <code class="docutils literal notranslate"><span class="pre">--samtools-memory</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If the file <code class="docutils literal notranslate"><span class="pre">cellsorted_[ORIGINALBAMNAME]</span></code> exists, the sorting procedure will be skipped and the file present will be used.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Most of the <code class="docutils literal notranslate"><span class="pre">velocyto</span></code> pipeline is single threaded and several instances can be run on the same multicore machine to process your samples in a time effective way.
+However, because of the above mentioned multithreaded call to <code class="docutils literal notranslate"><span class="pre">samtools</span> <span class="pre">sort</span></code>, running several instances of <code class="docutils literal notranslate"><span class="pre">veloctyo</span> <span class="pre">run</span></code> might end up using the memory and cpu of your system and possbily result in runtime errors.
+Therefore for batch jobs we suggest to first call <code class="code docutils literal notranslate"><span class="pre">samtools</span> <span class="pre">sort</span> <span class="pre">-t</span> <span class="pre">CB</span> <span class="pre">-O</span> <span class="pre">BAM</span> <span class="pre">-o</span> <span class="pre">cellsorted_possorted_genome_bam.bam</span> <span class="pre">possorted_genome_bam.bam</span></code> sequentially and only then running <code class="docutils literal notranslate"><span class="pre">velocyto</span></code></p>
+</div>
+</div>
+<div class="section" id="run-with-different-logics">
+<h3>Run with different logics<a class="headerlink" href="#run-with-different-logics" title="Permalink to this headline">¶</a></h3>
+<p>The rules used to call spliced, unspliced and ambiguous molecules from the reads mappings can be set using the <code class="code docutils literal notranslate"><span class="pre">--logic</span></code> parameter.
+The behavior of the counter can be modified using one of the different logics supported.
+Every logic has a different sensitivity. The currently available are:</p>
+<ul class="simple">
+<li>Permissive10X</li>
+<li>ValidatedIntrons10X (<a href="#id1"><span class="problematic" id="id2">*</span></a>Default)</li>
+<li>Stricter10X</li>
+<li>ObservedSpanning10X</li>
+</ul>
+<p>Despite the name (that designates their original design for the 10X platform) the logics generalize well to similar chemistries (e.g. Drop-seq).</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">Custom logics supporting peculiarities of other chemistries can be implemented simply by creating a class that inherits from <a class="reference internal" href="../fullapi/api_cli_logic.html#logicapi"><span class="std std-ref">Logic</span></a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="run-on-a-single-or-multiple-10x-chromium-samples">
+<h2>Run on a single or multiple 10X Chromium samples<a class="headerlink" href="#run-on-a-single-or-multiple-10x-chromium-samples" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">velocyto</span></code> supports a shortcut to run directly on one or more <cite>cellranger</cite> output folders (e.g. this is the folder containing the subfolder: <code class="docutils literal notranslate"><span class="pre">outs</span></code>, <code class="docutils literal notranslate"><span class="pre">outs/analys</span></code> and <code class="docutils literal notranslate"><span class="pre">outs/filtered_gene_bc_matrices</span></code>).</p>
+<p>For example if we want to run the pipeline on the folder <code class="docutils literal notranslate"><span class="pre">mypath/sample01</span></code>. We would do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">velocyto</span> <span class="n">run10x</span> <span class="o">-</span><span class="n">m</span> <span class="n">repeat_msk_srt</span><span class="o">.</span><span class="n">gtf</span> <span class="n">mypath</span><span class="o">/</span><span class="n">sample01</span> <span class="n">mm10_annotation</span><span class="o">.</span><span class="n">gtf</span>
+</pre></div>
+</div>
+<p>The full signature of the command is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span> <span class="n">velocyto</span> <span class="n">run10x</span> <span class="p">[</span><span class="n">OPTIONS</span><span class="p">]</span> <span class="n">SAMPLEFOLDER</span> <span class="n">GTFFILE</span>
+
+          <span class="n">Runs</span> <span class="n">the</span> <span class="n">velocity</span> <span class="n">analysis</span> <span class="k">for</span> <span class="n">a</span> <span class="n">Chromium</span> <span class="mi">10</span><span class="n">X</span> <span class="n">Sample</span>
+
+          <span class="mi">10</span><span class="n">XSAMPLEFOLDER</span> <span class="n">specifies</span> <span class="n">the</span> <span class="n">cellranger</span> <span class="n">sample</span> <span class="n">folder</span>
+
+          <span class="n">GTFFILE</span> <span class="n">genome</span> <span class="n">annotation</span> <span class="n">file</span>
+
+        <span class="n">Options</span><span class="p">:</span>
+          <span class="o">-</span><span class="n">s</span><span class="p">,</span> <span class="o">--</span><span class="n">metadatatable</span> <span class="n">PATH</span>        <span class="n">Table</span> <span class="n">containing</span> <span class="n">metadata</span> <span class="n">of</span> <span class="n">the</span> <span class="n">various</span> <span class="n">samples</span> <span class="p">(</span><span class="n">csv</span> <span class="n">fortmated</span> <span class="n">rows</span> <span class="n">are</span> <span class="n">samples</span> <span class="ow">and</span> <span class="n">cols</span> <span class="n">are</span> <span class="n">entries</span><span class="p">)</span>
+          <span class="o">-</span><span class="n">m</span><span class="p">,</span> <span class="o">--</span><span class="n">repmask</span> <span class="n">PATH</span>              <span class="o">.</span><span class="n">gtf</span> <span class="n">file</span> <span class="n">containing</span> <span class="n">intervals</span> <span class="n">to</span> <span class="n">mask</span>
+          <span class="o">-</span><span class="n">l</span><span class="p">,</span> <span class="o">--</span><span class="n">logic</span> <span class="n">TEXT</span>                <span class="n">The</span> <span class="n">logic</span> <span class="n">to</span> <span class="n">use</span> <span class="k">for</span> <span class="n">the</span> <span class="n">filtering</span> <span class="p">(</span><span class="n">default</span><span class="p">:</span> <span class="n">Default</span><span class="p">)</span>
+          <span class="o">-</span><span class="n">M</span><span class="p">,</span> <span class="o">--</span><span class="n">multimap</span>                  <span class="n">Use</span> <span class="n">reads</span> <span class="n">that</span> <span class="n">did</span> <span class="ow">not</span> <span class="nb">map</span> <span class="n">uniquely</span> <span class="p">(</span><span class="n">default</span><span class="p">:</span> <span class="kc">False</span><span class="p">)</span>
+          <span class="o">-@</span><span class="p">,</span> <span class="o">--</span><span class="n">samtools</span><span class="o">-</span><span class="n">threads</span> <span class="n">INTEGER</span>  <span class="n">The</span> <span class="n">number</span> <span class="n">of</span> <span class="n">threads</span> <span class="n">to</span> <span class="n">use</span> <span class="n">to</span> <span class="n">sort</span> <span class="n">the</span> <span class="n">bam</span> <span class="n">by</span> <span class="n">cellID</span> <span class="n">file</span> <span class="n">using</span> <span class="n">samtools</span>
+          <span class="o">--</span><span class="n">samtools</span><span class="o">-</span><span class="n">memory</span> <span class="n">INTEGER</span>       <span class="n">The</span> <span class="n">number</span> <span class="n">of</span> <span class="n">MB</span> <span class="n">used</span> <span class="k">for</span> <span class="n">every</span> <span class="n">thread</span> <span class="n">by</span> <span class="n">samtools</span> <span class="n">to</span> <span class="n">sort</span> <span class="n">the</span> <span class="n">bam</span> <span class="n">file</span>
+          <span class="o">--</span><span class="n">help</span>                          <span class="n">Show</span> <span class="n">this</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="about-the-output-loom-file">
+<h2>About the output .loom file<a class="headerlink" href="#about-the-output-loom-file" title="Permalink to this headline">¶</a></h2>
+<p>The main result file is a 4-layered <a class="reference external" href="http://loompy.org/loompy-docs/format/index.html">loom file</a> : <cite>sample_id.loom</cite>.</p>
+<p>A valid .loom file is simply an HDF5 file that contains specific groups representing the main matrix as well as row and column attributes.
+Because of this, .loom files can be created and read by any language that supports HDF5.</p>
+<p>.loom files can be easily handled using the <a class="reference external" href="http://loompy.org">loompy package</a>.</p>
+</div>
+<div class="section" id="get-started-with-the-analysis">
+<h2>Get started with the analysis<a class="headerlink" href="#get-started-with-the-analysis" title="Permalink to this headline">¶</a></h2>
+<p>At this point you are ready to start analyzing your <code class="docutils literal notranslate"><span class="pre">.loom</span></code> file. To get started read our <a class="reference internal" href="analysis.html#analysis"><span class="std std-ref">analysis tutorial</span></a> and have a look at the <a class="reference internal" href="../notebooks/index.html#notebooks"><span class="std std-ref">notebooks examples</span></a>.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="analysis.html" class="btn btn-neutral float-right" title="Analysis Pipeline" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Linnarsson Lab.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.13.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
